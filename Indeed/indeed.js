@@ -39,7 +39,7 @@ async function getData(url, date){
         .each(function (idx, el) 
         {
         let text = $(el).text();
-        for (item of ['Jobs','Reviews'])
+        for (let item of ['Jobs','Reviews'])
             {
                 if (text.includes(item))
                 {
@@ -71,14 +71,14 @@ async function getData(url, date){
         split = JSON.parse(split);
         if (split != undefined)
             {
-            for (item of split)
+            for (let item of split)
                 {
                     let link = item['href'];
                     var text = item['text'];
                     text = text.replace(/[.]/g,' ');
                     text = text.toLowerCase();
                     let names = ['website','instagram','facebook', 'twitter','youtube','linkedin']
-                    for (name of names)
+                    for (let name of names)
                         {
                             if (text.includes(name))
                                 {
@@ -90,7 +90,9 @@ async function getData(url, date){
                 }
             }
         }
-        catch(e){}
+        catch(e){
+            //pass
+        }
     }
     return doc;
 }
@@ -108,7 +110,7 @@ async function process(urls, splitSize=50)
     var db = client.db(dbName);
     var coll = db.collection('Indeed');
     var result = splitArray(urls, splitSize);
-    for (element of result)
+    for (let element of result)
         {
             let data = await Promise.all(
             element.map(async item =>{
@@ -127,7 +129,7 @@ async function process(urls, splitSize=50)
         coll.insertMany(data);
         }
     client.close();
-};
+}
 
 /**
  * Split array to arrays
