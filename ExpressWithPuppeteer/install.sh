@@ -13,7 +13,7 @@ npm install express --save
 #npm install puppeteer --unsafe-perm
 npm install bufferutil
 npm install utf-8-validate
-npm install puppeteer-core
+npm install puppeteer
 npm install puppeteer-extra
 npm install puppeteer-extra-plugin-stealth
 cat <<EOT >> index.js
