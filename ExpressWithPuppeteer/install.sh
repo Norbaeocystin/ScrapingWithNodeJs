@@ -2,6 +2,7 @@
 #api point example below
 # 'http://<server ip>:3000/api?url=http://topky.sk'
 yes | apt update
+curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 yes | apt install nodejs
 yes | apt install chromium-browser
 export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
